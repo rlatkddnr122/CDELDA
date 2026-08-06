@@ -15,6 +15,18 @@ and the scripts that regenerate each dataset variant, table and figure reported 
 The study asks what lets a predictor score an lncRNA–disease pair when **neither** partner was
 seen in training (the `C-both` protocol). Three results are reproducible here:
 
+Before anything else, check that the released results match the published tables:
+
+```bash
+python verify.py     # no GPU, no dataset needed
+```
+
+It asserts all 112 values of Tables 2 and 3 against `results*/` and exits non-zero on any
+mismatch. It also pins down one trap: a few models were re-run into a dedicated directory
+after first appearing in `results_sweep/`, and the two copies disagree — `VGAELDA-contentfull`
+differs in all sixteen variants. The article uses the dedicated directory, so reading
+`results_sweep/` first silently changes the *best content-equipped* column on three variants.
+
 | Claim | Where | Command |
 |---|---|---|
 | Every method that reads only the association graph falls to the 0.500 chance floor at `C-both` | Table 2 | `python -m bench.runner --dataset rd --protocol cold` |
@@ -38,7 +50,8 @@ bench/            evaluation harness, model interface, metrics
   case_study_*.py   disease-cold case study (Tables 6-7)
 snapshot_src/     frozen model source as used for the reported numbers
 data_prep/src/    dataset regeneration pipeline (see "Data" below)
-results/          frozen result JSON behind every reported number
+results*/         frozen result JSON behind every reported number
+verify.py         asserts the published tables against results*/
 paper/            scripts that emit the manuscript tables and figures
 ```
 
@@ -133,8 +146,8 @@ control; `bench/vghb_leakage.py` demonstrates what happens without it (Table 5).
 ## Tables and figures
 
 ```bash
-python paper/make_singlesource_tables.py   # Tables 1-5
-python paper/make_tables_std.py            # statistics columns
+python verify.py                           # check Tables 2-3 against results*/
+python paper/make_singlesource_tables.py   # Tables 2-3 as markdown
 python -m bench.case_study_cdis            # Table 6
 python -m bench.case_study_external        # Table 7 external confirmation
 python paper/fig_architecture.py           # Figure 1

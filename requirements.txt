@@ -1,0 +1,29 @@
+# CDELDA — Python 3.11
+#
+# Install torch separately, matching your CUDA build:
+#     pip install torch --index-url https://download.pytorch.org/whl/cu124
+
+numpy
+scipy
+scikit-learn
+pandas
+networkx
+matplotlib
+tqdm
+openpyxl
+
+# lncRNA secondary structure (ViennaRNA python bindings) -- `import RNA`
+ViennaRNA
+
+# disease tower: S-BioBERT + LoRA
+sentence-transformers
+transformers
+peft
+
+# --- optional, imported lazily -------------------------------------------
+# RNA-FM sequence embeddings (data preparation, RNA-side LoRA ablation)
+# multimolecule
+# BoostingMachine used by the LDA-VGHB baseline (Table 5)
+# snapml
+# hyperparameter sweep logging (bench/wandb_*.py only)
+# wandb

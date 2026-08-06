@@ -1,0 +1,1584 @@
+{
+ "protocol": "C-both (both-cold, headline)",
+ "variant": "l2d5",
+ "seed": 2026,
+ "model": "TwoTower-PEFT-disease (LoRA S-BioBERT)",
+ "M_shape": [
+  5102,
+  245
+ ],
+ "device": "cuda",
+ "note": "candidates are the held-out lncRNA fold, which has no training degree by construction, so the Panel A popularity confound cannot operate",
+ "cancers": {
+  "Non-small cell lung cancer": {
+   "n_cand": 1020,
+   "n_pos": 76,
+   "n_specific": 18,
+   "prevalence": 0.07450980392156863,
+   "methods": {
+    "dual-encoder (C-both)": {
+     "hits@20": 3,
+     "expected@20": 1.4901960784313726,
+     "p@20": 0.1820101889655394,
+     "recall@50": 0.10526315789473684,
+     "auroc_all": 0.6927826717216771,
+     "p_all": 2.167477695342004e-08,
+     "auroc_specific": 0.5251883239171374,
+     "p_specific": 0.7139762598501087,
+     "spearman_with_true_degree": 0.2652184515409049,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "NORAD",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 33
+      },
+      {
+       "rank": 2,
+       "lncRNA": "ZNF503-AS2",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 3,
+       "lncRNA": "RP11-96H19.1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 4,
+       "lncRNA": "KCNJ2-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 5,
+       "lncRNA": "LINC02381",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 10
+      },
+      {
+       "rank": 6,
+       "lncRNA": "SLC25A21-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 5
+      },
+      {
+       "rank": 7,
+       "lncRNA": "DHRS4-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 4
+      },
+      {
+       "rank": 8,
+       "lncRNA": "HEIH",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 20
+      },
+      {
+       "rank": 9,
+       "lncRNA": "LINC00886",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 5
+      },
+      {
+       "rank": 10,
+       "lncRNA": "AC099850.4",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 11,
+       "lncRNA": "ZC3H12A-DT",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 6
+      },
+      {
+       "rank": 12,
+       "lncRNA": "EMSLR",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 13,
+       "lncRNA": "CTB-193M12.5",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 14,
+       "lncRNA": "SATB2-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 6
+      },
+      {
+       "rank": 15,
+       "lncRNA": "TRAM2-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 4
+      },
+      {
+       "rank": 16,
+       "lncRNA": "LINC00899",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 4
+      },
+      {
+       "rank": 17,
+       "lncRNA": "MSC-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 16
+      },
+      {
+       "rank": 18,
+       "lncRNA": "GATA2-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 7
+      },
+      {
+       "rank": 19,
+       "lncRNA": "CD27-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 5
+      },
+      {
+       "rank": 20,
+       "lncRNA": "FOSB",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      }
+     ]
+    },
+    "oracle popularity (not available to any method)": {
+     "hits@20": 19,
+     "expected@20": 1.4901960784313726,
+     "p@20": 7.151678230644498e-22,
+     "recall@50": 0.4473684210526316,
+     "auroc_all": 0.863884087867975,
+     "p_all": 4.2583037716567546e-26,
+     "auroc_specific": 0.6281191148775894,
+     "p_specific": 0.06228087663606976,
+     "spearman_with_true_degree": 1.0,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "HOTAIR",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 109
+      },
+      {
+       "rank": 2,
+       "lncRNA": "PVT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 98
+      },
+      {
+       "rank": 3,
+       "lncRNA": "GAS5",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 96
+      },
+      {
+       "rank": 4,
+       "lncRNA": "XIST",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 78
+      },
+      {
+       "rank": 5,
+       "lncRNA": "CCAT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 47
+      },
+      {
+       "rank": 6,
+       "lncRNA": "FENDRR",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 33
+      },
+      {
+       "rank": 7,
+       "lncRNA": "NORAD",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 33
+      },
+      {
+       "rank": 8,
+       "lncRNA": "SNHG15",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 32
+      },
+      {
+       "rank": 9,
+       "lncRNA": "CDR1-AS",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 32
+      },
+      {
+       "rank": 10,
+       "lncRNA": "SNHG20",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 25
+      },
+      {
+       "rank": 11,
+       "lncRNA": "TINCR",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 24
+      },
+      {
+       "rank": 12,
+       "lncRNA": "CASC15",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 23
+      },
+      {
+       "rank": 13,
+       "lncRNA": "HCG11",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 23
+      },
+      {
+       "rank": 14,
+       "lncRNA": "LEF1-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 21
+      },
+      {
+       "rank": 15,
+       "lncRNA": "HEIH",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 20
+      },
+      {
+       "rank": 16,
+       "lncRNA": "MNX1-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 19
+      },
+      {
+       "rank": 17,
+       "lncRNA": "LINC00173",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 18
+      },
+      {
+       "rank": 18,
+       "lncRNA": "DSCAM-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 17
+      },
+      {
+       "rank": 19,
+       "lncRNA": "TRPM2-AS",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 16
+      },
+      {
+       "rank": 20,
+       "lncRNA": "IFNG-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 16
+      }
+     ]
+    }
+   }
+  },
+  "Hepatocellular carcinoma": {
+   "n_cand": 1020,
+   "n_pos": 195,
+   "n_specific": 94,
+   "prevalence": 0.19117647058823528,
+   "methods": {
+    "dual-encoder (C-both)": {
+     "hits@20": 12,
+     "expected@20": 3.823529411764706,
+     "p@20": 5.240073232587019e-05,
+     "recall@50": 0.11794871794871795,
+     "auroc_all": 0.6647987567987568,
+     "p_all": 7.722859424785082e-13,
+     "auroc_specific": 0.6082333978078659,
+     "p_specific": 0.0005767870516483988,
+     "spearman_with_true_degree": 0.158648002861798,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "AC012531.1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 2,
+       "lncRNA": "HOXA-AS3",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 14
+      },
+      {
+       "rank": 3,
+       "lncRNA": "TSIX",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 10
+      },
+      {
+       "rank": 4,
+       "lncRNA": "AC012531.25",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 5,
+       "lncRNA": "MALAT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 143
+      },
+      {
+       "rank": 6,
+       "lncRNA": "MALAT-1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 4
+      },
+      {
+       "rank": 7,
+       "lncRNA": "PCAT4",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 4
+      },
+      {
+       "rank": 8,
+       "lncRNA": "LINC01139",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 18
+      },
+      {
+       "rank": 9,
+       "lncRNA": "RP3-326I13.1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 10,
+       "lncRNA": "SNHG16",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 56
+      },
+      {
+       "rank": 11,
+       "lncRNA": "CCND1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 12,
+       "lncRNA": "LINC01278",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 7
+      },
+      {
+       "rank": 13,
+       "lncRNA": "RP11-363E7.4",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 5
+      },
+      {
+       "rank": 14,
+       "lncRNA": "AGAP2-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 22
+      },
+      {
+       "rank": 15,
+       "lncRNA": "LPP-AS2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 8
+      },
+      {
+       "rank": 16,
+       "lncRNA": "DDIT4",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 17,
+       "lncRNA": "RP11-798M19.3",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 18,
+       "lncRNA": "TMEM238L",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 9
+      },
+      {
+       "rank": 19,
+       "lncRNA": "HAND2-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 34
+      },
+      {
+       "rank": 20,
+       "lncRNA": "HCP5",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 36
+      }
+     ]
+    },
+    "oracle popularity (not available to any method)": {
+     "hits@20": 20,
+     "expected@20": 3.823529411764706,
+     "p@20": 1.8710836017811826e-15,
+     "recall@50": 0.2358974358974359,
+     "auroc_all": 0.7127241647241648,
+     "p_all": 2.2462126213205536e-20,
+     "auroc_specific": 0.4769116698903933,
+     "p_specific": 0.4627591126308946,
+     "spearman_with_true_degree": 1.0,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "MALAT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 143
+      },
+      {
+       "rank": 2,
+       "lncRNA": "UCA1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 74
+      },
+      {
+       "rank": 3,
+       "lncRNA": "MIAT",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 57
+      },
+      {
+       "rank": 4,
+       "lncRNA": "SNHG16",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 56
+      },
+      {
+       "rank": 5,
+       "lncRNA": "CRNDE",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 52
+      },
+      {
+       "rank": 6,
+       "lncRNA": "ZFAS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 50
+      },
+      {
+       "rank": 7,
+       "lncRNA": "KCNQ1OT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 49
+      },
+      {
+       "rank": 8,
+       "lncRNA": "HULC",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 45
+      },
+      {
+       "rank": 9,
+       "lncRNA": "CCAT2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 39
+      },
+      {
+       "rank": 10,
+       "lncRNA": "HCP5",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 36
+      },
+      {
+       "rank": 11,
+       "lncRNA": "SPRY4-IT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 35
+      },
+      {
+       "rank": 12,
+       "lncRNA": "SNHG7",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 34
+      },
+      {
+       "rank": 13,
+       "lncRNA": "SNHG6",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 34
+      },
+      {
+       "rank": 14,
+       "lncRNA": "HAND2-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 34
+      },
+      {
+       "rank": 15,
+       "lncRNA": "DLX6-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 33
+      },
+      {
+       "rank": 16,
+       "lncRNA": "PANDAR",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 30
+      },
+      {
+       "rank": 17,
+       "lncRNA": "LINC00511",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 29
+      },
+      {
+       "rank": 18,
+       "lncRNA": "DGCR5",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 29
+      },
+      {
+       "rank": 19,
+       "lncRNA": "HAGLR",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 28
+      },
+      {
+       "rank": 20,
+       "lncRNA": "LINC00473",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 28
+      }
+     ]
+    }
+   }
+  },
+  "Gastric cancer": {
+   "n_cand": 1020,
+   "n_pos": 149,
+   "n_specific": 54,
+   "prevalence": 0.14607843137254903,
+   "methods": {
+    "dual-encoder (C-both)": {
+     "hits@20": 10,
+     "expected@20": 2.9215686274509802,
+     "p@20": 0.00016527484729818393,
+     "recall@50": 0.1476510067114094,
+     "auroc_all": 0.7019779779471255,
+     "p_all": 3.0630548470168155e-15,
+     "auroc_specific": 0.5279691287153974,
+     "p_specific": 0.4898734712669682,
+     "spearman_with_true_degree": 0.427310506382082,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "AC012531.1",
+       "held_out_positive": true,
+       "cancer_specific": true,
+       "true_degree": 2
+      },
+      {
+       "rank": 2,
+       "lncRNA": "HOXA-AS3",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 14
+      },
+      {
+       "rank": 3,
+       "lncRNA": "MALAT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 143
+      },
+      {
+       "rank": 4,
+       "lncRNA": "MALAT-1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 4
+      },
+      {
+       "rank": 5,
+       "lncRNA": "AC012531.25",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 6,
+       "lncRNA": "CCND1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 7,
+       "lncRNA": "TMEM238L",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 9
+      },
+      {
+       "rank": 8,
+       "lncRNA": "AGAP2-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 22
+      },
+      {
+       "rank": 9,
+       "lncRNA": "SNHG16",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 56
+      },
+      {
+       "rank": 10,
+       "lncRNA": "RP11-363E7.4",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 5
+      },
+      {
+       "rank": 11,
+       "lncRNA": "LPP-AS2",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 8
+      },
+      {
+       "rank": 12,
+       "lncRNA": "LINC01278",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 7
+      },
+      {
+       "rank": 13,
+       "lncRNA": "DDIT4",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 14,
+       "lncRNA": "LINC00628",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 8
+      },
+      {
+       "rank": 15,
+       "lncRNA": "TSIX",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 10
+      },
+      {
+       "rank": 16,
+       "lncRNA": "LINC01139",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 18
+      },
+      {
+       "rank": 17,
+       "lncRNA": "HCP5",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 36
+      },
+      {
+       "rank": 18,
+       "lncRNA": "RP11-54O7.17",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 19,
+       "lncRNA": "PITX1-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 4
+      },
+      {
+       "rank": 20,
+       "lncRNA": "ZFAS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 50
+      }
+     ]
+    },
+    "oracle popularity (not available to any method)": {
+     "hits@20": 20,
+     "expected@20": 2.9215686274509802,
+     "p@20": 6.215376088927419e-18,
+     "recall@50": 0.30201342281879195,
+     "auroc_all": 0.8083742362015426,
+     "p_all": 2.0948305512320866e-33,
+     "auroc_specific": 0.5738933537441,
+     "p_specific": 0.0681065990597554,
+     "spearman_with_true_degree": 1.0,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "MALAT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 143
+      },
+      {
+       "rank": 2,
+       "lncRNA": "UCA1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 74
+      },
+      {
+       "rank": 3,
+       "lncRNA": "MIAT",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 57
+      },
+      {
+       "rank": 4,
+       "lncRNA": "SNHG16",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 56
+      },
+      {
+       "rank": 5,
+       "lncRNA": "CRNDE",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 52
+      },
+      {
+       "rank": 6,
+       "lncRNA": "ZFAS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 50
+      },
+      {
+       "rank": 7,
+       "lncRNA": "KCNQ1OT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 49
+      },
+      {
+       "rank": 8,
+       "lncRNA": "HULC",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 45
+      },
+      {
+       "rank": 9,
+       "lncRNA": "CCAT2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 39
+      },
+      {
+       "rank": 10,
+       "lncRNA": "HCP5",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 36
+      },
+      {
+       "rank": 11,
+       "lncRNA": "SPRY4-IT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 35
+      },
+      {
+       "rank": 12,
+       "lncRNA": "SNHG7",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 34
+      },
+      {
+       "rank": 13,
+       "lncRNA": "SNHG6",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 34
+      },
+      {
+       "rank": 14,
+       "lncRNA": "HAND2-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 34
+      },
+      {
+       "rank": 15,
+       "lncRNA": "DLX6-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 33
+      },
+      {
+       "rank": 16,
+       "lncRNA": "PANDAR",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 30
+      },
+      {
+       "rank": 17,
+       "lncRNA": "LINC00511",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 29
+      },
+      {
+       "rank": 18,
+       "lncRNA": "DGCR5",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 29
+      },
+      {
+       "rank": 19,
+       "lncRNA": "HAGLR",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 28
+      },
+      {
+       "rank": 20,
+       "lncRNA": "LINC00473",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 28
+      }
+     ]
+    }
+   }
+  },
+  "Breast cancer": {
+   "n_cand": 1020,
+   "n_pos": 114,
+   "n_specific": 48,
+   "prevalence": 0.11176470588235295,
+   "methods": {
+    "dual-encoder (C-both)": {
+     "hits@20": 5,
+     "expected@20": 2.235294117647059,
+     "p@20": 0.06267457115650713,
+     "recall@50": 0.12280701754385964,
+     "auroc_all": 0.6455694976956741,
+     "p_all": 3.940089771632208e-07,
+     "auroc_specific": 0.5214426968359087,
+     "p_specific": 0.6161962658521477,
+     "spearman_with_true_degree": 0.2971224784066158,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "HOXA10-AS",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 7
+      },
+      {
+       "rank": 2,
+       "lncRNA": "NEAT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 114
+      },
+      {
+       "rank": 3,
+       "lncRNA": "SOD2",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 5
+      },
+      {
+       "rank": 4,
+       "lncRNA": "FGD5-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 26
+      },
+      {
+       "rank": 5,
+       "lncRNA": "DNM3OS",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 14
+      },
+      {
+       "rank": 6,
+       "lncRNA": "TUG1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 75
+      },
+      {
+       "rank": 7,
+       "lncRNA": "CDKN2B",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 4
+      },
+      {
+       "rank": 8,
+       "lncRNA": "LOC554202",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 14
+      },
+      {
+       "rank": 9,
+       "lncRNA": "BISPR",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 10,
+       "lncRNA": "LINC01679",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 11,
+       "lncRNA": "LINC02023",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 12,
+       "lncRNA": "HOTTIP",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 45
+      },
+      {
+       "rank": 13,
+       "lncRNA": "CARD8-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 7
+      },
+      {
+       "rank": 14,
+       "lncRNA": "FLJ22447",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 15,
+       "lncRNA": "PDZRN3-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 5
+      },
+      {
+       "rank": 16,
+       "lncRNA": "HOXD-AS2",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 6
+      },
+      {
+       "rank": 17,
+       "lncRNA": "TMEM108-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 18,
+       "lncRNA": "SNHG9",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 10
+      },
+      {
+       "rank": 19,
+       "lncRNA": "RUNX1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 20,
+       "lncRNA": "ARHGAP5-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 7
+      }
+     ]
+    },
+    "oracle popularity (not available to any method)": {
+     "hits@20": 17,
+     "expected@20": 2.235294117647059,
+     "p@20": 1.84649605512818e-14,
+     "recall@50": 0.2982456140350877,
+     "auroc_all": 0.8006951705975757,
+     "p_all": 1.1064009453408127e-25,
+     "auroc_specific": 0.6027754782928624,
+     "p_specific": 0.01628349244401033,
+     "spearman_with_true_degree": 1.0,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "H19",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 132
+      },
+      {
+       "rank": 2,
+       "lncRNA": "NEAT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 114
+      },
+      {
+       "rank": 3,
+       "lncRNA": "MEG3",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 108
+      },
+      {
+       "rank": 4,
+       "lncRNA": "TUG1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 75
+      },
+      {
+       "rank": 5,
+       "lncRNA": "SNHG1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 49
+      },
+      {
+       "rank": 6,
+       "lncRNA": "HOTTIP",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 45
+      },
+      {
+       "rank": 7,
+       "lncRNA": "CASC2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 43
+      },
+      {
+       "rank": 8,
+       "lncRNA": "SNHG12",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 37
+      },
+      {
+       "rank": 9,
+       "lncRNA": "LNCRNA-ATB",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 36
+      },
+      {
+       "rank": 10,
+       "lncRNA": "LINC00460",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 34
+      },
+      {
+       "rank": 11,
+       "lncRNA": "LINC-PINT",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 33
+      },
+      {
+       "rank": 12,
+       "lncRNA": "SNHG14",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 32
+      },
+      {
+       "rank": 13,
+       "lncRNA": "HOXA-AS2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 31
+      },
+      {
+       "rank": 14,
+       "lncRNA": "LINC00261",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 27
+      },
+      {
+       "rank": 15,
+       "lncRNA": "ZEB2-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 26
+      },
+      {
+       "rank": 16,
+       "lncRNA": "LOXL1-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 26
+      },
+      {
+       "rank": 17,
+       "lncRNA": "FGD5-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 26
+      },
+      {
+       "rank": 18,
+       "lncRNA": "ADAMTS9-AS2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 25
+      },
+      {
+       "rank": 19,
+       "lncRNA": "FTX",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 25
+      },
+      {
+       "rank": 20,
+       "lncRNA": "LINC00963",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 22
+      }
+     ]
+    }
+   }
+  },
+  "Colorectal cancer": {
+   "n_cand": 1020,
+   "n_pos": 101,
+   "n_specific": 34,
+   "prevalence": 0.09901960784313725,
+   "methods": {
+    "dual-encoder (C-both)": {
+     "hits@20": 9,
+     "expected@20": 1.9803921568627452,
+     "p@20": 4.3117132515320285e-05,
+     "recall@50": 0.21782178217821782,
+     "auroc_all": 0.710684234908801,
+     "p_all": 3.434222493090427e-12,
+     "auroc_specific": 0.5938520130576714,
+     "p_specific": 0.06279812645259629,
+     "spearman_with_true_degree": 0.29956801075695905,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "HOXA10-AS",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 7
+      },
+      {
+       "rank": 2,
+       "lncRNA": "NEAT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 114
+      },
+      {
+       "rank": 3,
+       "lncRNA": "SOD2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 5
+      },
+      {
+       "rank": 4,
+       "lncRNA": "FGD5-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 26
+      },
+      {
+       "rank": 5,
+       "lncRNA": "CDKN2B",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 4
+      },
+      {
+       "rank": 6,
+       "lncRNA": "LOC554202",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 14
+      },
+      {
+       "rank": 7,
+       "lncRNA": "TUG1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 75
+      },
+      {
+       "rank": 8,
+       "lncRNA": "TMEM108-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 9,
+       "lncRNA": "LINC01679",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 10,
+       "lncRNA": "HOTTIP",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 45
+      },
+      {
+       "rank": 11,
+       "lncRNA": "HOXD-AS2",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 6
+      },
+      {
+       "rank": 12,
+       "lncRNA": "DNM3OS",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 14
+      },
+      {
+       "rank": 13,
+       "lncRNA": "LINC02023",
+       "held_out_positive": true,
+       "cancer_specific": true,
+       "true_degree": 2
+      },
+      {
+       "rank": 14,
+       "lncRNA": "SNHG9",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 10
+      },
+      {
+       "rank": 15,
+       "lncRNA": "SOX21-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 21
+      },
+      {
+       "rank": 16,
+       "lncRNA": "FLJ22447",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 17,
+       "lncRNA": "FLJ13224",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 18,
+       "lncRNA": "RUNX1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 3
+      },
+      {
+       "rank": 19,
+       "lncRNA": "BISPR",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      },
+      {
+       "rank": 20,
+       "lncRNA": "LINC00545",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 2
+      }
+     ]
+    },
+    "oracle popularity (not available to any method)": {
+     "hits@20": 19,
+     "expected@20": 1.9803921568627452,
+     "p@20": 2.9716129755447915e-19,
+     "recall@50": 0.39603960396039606,
+     "auroc_all": 0.8253159374696991,
+     "p_all": 6.264391489263628e-27,
+     "auroc_specific": 0.5982685783780324,
+     "p_specific": 0.05139383543430522,
+     "spearman_with_true_degree": 1.0,
+     "top20": [
+      {
+       "rank": 1,
+       "lncRNA": "H19",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 132
+      },
+      {
+       "rank": 2,
+       "lncRNA": "NEAT1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 114
+      },
+      {
+       "rank": 3,
+       "lncRNA": "MEG3",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 108
+      },
+      {
+       "rank": 4,
+       "lncRNA": "TUG1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 75
+      },
+      {
+       "rank": 5,
+       "lncRNA": "SNHG1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 49
+      },
+      {
+       "rank": 6,
+       "lncRNA": "HOTTIP",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 45
+      },
+      {
+       "rank": 7,
+       "lncRNA": "CASC2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 43
+      },
+      {
+       "rank": 8,
+       "lncRNA": "SNHG12",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 37
+      },
+      {
+       "rank": 9,
+       "lncRNA": "LNCRNA-ATB",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 36
+      },
+      {
+       "rank": 10,
+       "lncRNA": "LINC00460",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 34
+      },
+      {
+       "rank": 11,
+       "lncRNA": "LINC-PINT",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 33
+      },
+      {
+       "rank": 12,
+       "lncRNA": "SNHG14",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 32
+      },
+      {
+       "rank": 13,
+       "lncRNA": "HOXA-AS2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 31
+      },
+      {
+       "rank": 14,
+       "lncRNA": "LINC00261",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 27
+      },
+      {
+       "rank": 15,
+       "lncRNA": "ZEB2-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 26
+      },
+      {
+       "rank": 16,
+       "lncRNA": "LOXL1-AS1",
+       "held_out_positive": false,
+       "cancer_specific": false,
+       "true_degree": 26
+      },
+      {
+       "rank": 17,
+       "lncRNA": "FGD5-AS1",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 26
+      },
+      {
+       "rank": 18,
+       "lncRNA": "ADAMTS9-AS2",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 25
+      },
+      {
+       "rank": 19,
+       "lncRNA": "FTX",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 25
+      },
+      {
+       "rank": 20,
+       "lncRNA": "LINC00963",
+       "held_out_positive": true,
+       "cancer_specific": false,
+       "true_degree": 22
+      }
+     ]
+    }
+   }
+  }
+ }
+}

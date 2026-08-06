@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the article below."
+title: "CDELDA"
+abstract: "Reproduction artifact for a content-based dual-encoder for cold-start lncRNA-disease association prediction."
+license: MIT
+authors:
+  - family-names: Kim
+    given-names: Sanguk
+    affiliation: "Pukyong National University"
+    orcid: "https://orcid.org/0009-0007-3765-2212"
+  - family-names: Yun
+    given-names: Taehyeon
+    affiliation: "Pukyong National University"
+    orcid: "https://orcid.org/0009-0009-3548-7430"
+  - family-names: Ha
+    given-names: Jihwan
+    affiliation: "Pukyong National University"
+    orcid: "https://orcid.org/0000-0002-6086-5693"
+preferred-citation:
+  type: article
+  title: "CDELDA: A Content-Based Dual-Encoder for Cold-Start lncRNA-Disease Association Prediction"
+  year: 2026
+  authors:
+    - family-names: Kim
+      given-names: Sanguk
+    - family-names: Yun
+      given-names: Taehyeon
+    - family-names: Ha
+      given-names: Jihwan

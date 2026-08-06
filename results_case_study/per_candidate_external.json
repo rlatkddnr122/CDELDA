@@ -1,0 +1,802 @@
+[
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 1,
+  "lncRNA": "HOTAIR",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 2,
+  "lncRNA": "H19",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 3,
+  "lncRNA": "XIST",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 4,
+  "lncRNA": "HOXA11",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 5,
+  "lncRNA": "HOTTIP",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 6,
+  "lncRNA": "AC012531.1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 7,
+  "lncRNA": "MALAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 8,
+  "lncRNA": "HOXA-AS3",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 9,
+  "lncRNA": "HOXA11-AS",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 10,
+  "lncRNA": "GATA6-AS1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 11,
+  "lncRNA": "MALAT-1",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 12,
+  "lncRNA": "UCA1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 13,
+  "lncRNA": "NEAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 14,
+  "lncRNA": "CDKN2B-AS1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 15,
+  "lncRNA": "RMRP",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 16,
+  "lncRNA": "MIR22HG",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 17,
+  "lncRNA": "SCHLAP1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 18,
+  "lncRNA": "SNHG16",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 19,
+  "lncRNA": "HOXA10-AS",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Hepatocellular carcinoma",
+  "rank": 20,
+  "lncRNA": "HIF1A",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 1,
+  "lncRNA": "HOTAIR",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 2,
+  "lncRNA": "H19",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 3,
+  "lncRNA": "MALAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 4,
+  "lncRNA": "UCA1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 5,
+  "lncRNA": "AC012531.1",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 6,
+  "lncRNA": "NEAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 7,
+  "lncRNA": "MALAT-1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 8,
+  "lncRNA": "HOXA-AS3",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 9,
+  "lncRNA": "HOXA11",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 10,
+  "lncRNA": "CCND1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 11,
+  "lncRNA": "MIR22HG",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 12,
+  "lncRNA": "CDKN2B-AS1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 13,
+  "lncRNA": "GATA6-AS1",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 14,
+  "lncRNA": "SCHLAP1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 15,
+  "lncRNA": "SNHG18",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 16,
+  "lncRNA": "SNHG16",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 17,
+  "lncRNA": "CHASERR",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 18,
+  "lncRNA": "HIF1A",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 19,
+  "lncRNA": "HOXA11-AS",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Gastric cancer",
+  "rank": 20,
+  "lncRNA": "HOTTIP",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 1,
+  "lncRNA": "HOTAIR",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 2,
+  "lncRNA": "MALAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 3,
+  "lncRNA": "H19",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 4,
+  "lncRNA": "UCA1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 5,
+  "lncRNA": "MALAT-1",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 6,
+  "lncRNA": "NEAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 7,
+  "lncRNA": "CDKN2B-AS1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 8,
+  "lncRNA": "AC012531.1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 9,
+  "lncRNA": "XIST",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 10,
+  "lncRNA": "MIR22HG",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 11,
+  "lncRNA": "HOTTIP",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 12,
+  "lncRNA": "HOXA11",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 13,
+  "lncRNA": "GATA6-AS1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 14,
+  "lncRNA": "SNHG18",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 15,
+  "lncRNA": "SNHG16",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 16,
+  "lncRNA": "NORAD",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 17,
+  "lncRNA": "SOD2",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 18,
+  "lncRNA": "CHASERR",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 19,
+  "lncRNA": "HIF1A",
+  "rnadisease": false,
+  "lncrnadisease": true,
+  "class": "LncRNADisease only"
+ },
+ {
+  "cancer": "Breast cancer",
+  "rank": 20,
+  "lncRNA": "HOTAIRM1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 1,
+  "lncRNA": "HOTAIR",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 2,
+  "lncRNA": "UCA1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 3,
+  "lncRNA": "H19",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 4,
+  "lncRNA": "MALAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 5,
+  "lncRNA": "CDKN2B-AS1",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 6,
+  "lncRNA": "AC012531.1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 7,
+  "lncRNA": "NEAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 8,
+  "lncRNA": "MALAT-1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 9,
+  "lncRNA": "HOTTIP",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 10,
+  "lncRNA": "SCHLAP1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 11,
+  "lncRNA": "MIR22HG",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 12,
+  "lncRNA": "HOXA11",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 13,
+  "lncRNA": "RNY1",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 14,
+  "lncRNA": "HOTAIRM1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 15,
+  "lncRNA": "SNHG18",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 16,
+  "lncRNA": "XIST",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 17,
+  "lncRNA": "CCND1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 18,
+  "lncRNA": "LINC00261",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 19,
+  "lncRNA": "SOD2",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Colorectal cancer",
+  "rank": 20,
+  "lncRNA": "SNHG16",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 1,
+  "lncRNA": "HOTAIR",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 2,
+  "lncRNA": "H19",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 3,
+  "lncRNA": "MALAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 4,
+  "lncRNA": "NEAT1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 5,
+  "lncRNA": "AC012531.1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 6,
+  "lncRNA": "MALAT-1",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 7,
+  "lncRNA": "HOXA-AS3",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 8,
+  "lncRNA": "CCND1",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 9,
+  "lncRNA": "HOXA11",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 10,
+  "lncRNA": "UCA1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 11,
+  "lncRNA": "MIR22HG",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 12,
+  "lncRNA": "CDKN2B-AS1",
+  "rnadisease": true,
+  "lncrnadisease": false,
+  "class": "RNADisease only"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 13,
+  "lncRNA": "SNHG18",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 14,
+  "lncRNA": "XIST",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 15,
+  "lncRNA": "HOXA11-AS",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 16,
+  "lncRNA": "HOXA10-AS",
+  "rnadisease": false,
+  "lncrnadisease": false,
+  "class": "unconfirmed"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 17,
+  "lncRNA": "HOTAIRM1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 18,
+  "lncRNA": "GATA6-AS1",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 19,
+  "lncRNA": "HOTTIP",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ },
+ {
+  "cancer": "Non-small cell lung cancer",
+  "rank": 20,
+  "lncRNA": "NORAD",
+  "rnadisease": true,
+  "lncrnadisease": true,
+  "class": "both"
+ }
+]

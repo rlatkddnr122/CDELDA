@@ -1,0 +1,42 @@
+{
+ "Hepatocellular carcinoma": [
+  "HOXA11",
+  "AC012531.1",
+  "GATA6-AS1",
+  "SCHLAP1",
+  "HOXA10-AS",
+  "HIF1A"
+ ],
+ "Gastric cancer": [
+  "MALAT-1",
+  "HOXA11",
+  "CCND1",
+  "SCHLAP1",
+  "SNHG18",
+  "CHASERR",
+  "HIF1A"
+ ],
+ "Breast cancer": [
+  "AC012531.1",
+  "HOXA11",
+  "GATA6-AS1",
+  "SNHG18",
+  "SOD2",
+  "CHASERR",
+  "HIF1A"
+ ],
+ "Colorectal cancer": [
+  "AC012531.1",
+  "MALAT-1",
+  "SCHLAP1",
+  "HOXA11",
+  "CCND1"
+ ],
+ "Non-small cell lung cancer": [
+  "AC012531.1",
+  "CCND1",
+  "HOXA11",
+  "MIR22HG",
+  "HOXA10-AS"
+ ]
+}

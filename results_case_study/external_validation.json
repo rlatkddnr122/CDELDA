@@ -1,0 +1,198 @@
+{
+ "sources": {
+  "LncRNADisease": "manual curation, matched by disease-name pattern",
+  "DISEASES (text-mining)": "Jensen-lab text mining over PubMed, DO-id keyed, confidence >= 2.0"
+ },
+ "caveat": "All three resources curate or mine the same primary literature, so agreement is support from a separately assembled body of evidence, not independent experimental confirmation.",
+ "cancers": {
+  "Hepatocellular carcinoma": {
+   "doid": "DOID:684",
+   "n_ours": 859,
+   "sources": {
+    "LncRNADisease": {
+     "n_external": 329,
+     "n_novel_vs_ours": 64,
+     "hits@20": 12,
+     "hits@50": 23,
+     "expected@20": 1.2896903175225403,
+     "p@20": 3.354531378553177e-10,
+     "novel_hits@20": 0,
+     "novel_hits@50": 0,
+     "novel_symbols@50": [],
+     "pmids": {}
+    },
+    "DISEASES (text-mining)": {
+     "n_external": 2,
+     "n_novel_vs_ours": 0,
+     "hits@20": 0,
+     "hits@50": 0,
+     "expected@20": 0.007840062720501764,
+     "p@20": 1.0,
+     "novel_hits@20": 0,
+     "novel_hits@50": 0,
+     "novel_symbols@50": [],
+     "pmids": {}
+    }
+   }
+  },
+  "Gastric cancer": {
+   "doid": "DOID:10534",
+   "n_ours": 683,
+   "sources": {
+    "LncRNADisease": {
+     "n_external": 308,
+     "n_novel_vs_ours": 63,
+     "hits@20": 11,
+     "hits@50": 23,
+     "expected@20": 1.2073696589572716,
+     "p@20": 3.355309521950629e-09,
+     "novel_hits@20": 0,
+     "novel_hits@50": 0,
+     "novel_symbols@50": [],
+     "pmids": {}
+    },
+    "DISEASES (text-mining)": {
+     "n_external": 8,
+     "n_novel_vs_ours": 2,
+     "hits@20": 1,
+     "hits@50": 1,
+     "expected@20": 0.03136025088200706,
+     "p@20": 0.03095429185277201,
+     "novel_hits@20": 0,
+     "novel_hits@50": 0,
+     "novel_symbols@50": [],
+     "pmids": {}
+    }
+   }
+  },
+  "Breast cancer": {
+   "doid": "DOID:1612",
+   "n_ours": 569,
+   "sources": {
+    "LncRNADisease": {
+     "n_external": 291,
+     "n_novel_vs_ours": 78,
+     "hits@20": 12,
+     "hits@50": 25,
+     "expected@20": 1.1407291258330066,
+     "p@20": 7.935827448665195e-11,
+     "novel_hits@20": 1,
+     "novel_hits@50": 5,
+     "novel_symbols@50": [
+      "HIF1A",
+      "SCHLAP1",
+      "STAT1",
+      "MIR210HG",
+      "LINC00261"
+     ],
+     "pmids": {
+      "HIF1A": [
+       "30953646"
+      ],
+      "SCHLAP1": [
+       "33846810"
+      ],
+      "STAT1": [
+       "30953646"
+      ],
+      "MIR210HG": [
+       "35346372"
+      ],
+      "LINC00261": [
+       "33274565"
+      ]
+     }
+    },
+    "DISEASES (text-mining)": {
+     "n_external": 8,
+     "n_novel_vs_ours": 1,
+     "hits@20": 1,
+     "hits@50": 1,
+     "expected@20": 0.03136025088200706,
+     "p@20": 0.03095429185277201,
+     "novel_hits@20": 0,
+     "novel_hits@50": 0,
+     "novel_symbols@50": [],
+     "pmids": {}
+    }
+   }
+  },
+  "Colorectal cancer": {
+   "doid": "DOID:9256",
+   "n_ours": 555,
+   "sources": {
+    "LncRNADisease": {
+     "n_external": 286,
+     "n_novel_vs_ours": 57,
+     "hits@20": 11,
+     "hits@50": 22,
+     "expected@20": 1.1211289690317523,
+     "p@20": 1.5201037887169743e-09,
+     "novel_hits@20": 0,
+     "novel_hits@50": 2,
+     "novel_symbols@50": [
+      "HOXA-AS3",
+      "PCGEM1"
+     ],
+     "pmids": {
+      "HOXA-AS3": [
+       "34671931"
+      ],
+      "PCGEM1": [
+       "35872368",
+       "36193492"
+      ]
+     }
+    },
+    "DISEASES (text-mining)": {
+     "n_external": 6,
+     "n_novel_vs_ours": 3,
+     "hits@20": 1,
+     "hits@50": 1,
+     "expected@20": 0.023520188161505293,
+     "p@20": 0.02330219862738182,
+     "novel_hits@20": 0,
+     "novel_hits@50": 0,
+     "novel_symbols@50": [],
+     "pmids": {}
+    }
+   }
+  },
+  "Non-small cell lung cancer": {
+   "doid": "DOID:3908",
+   "n_ours": 396,
+   "sources": {
+    "LncRNADisease": {
+     "n_external": 260,
+     "n_novel_vs_ours": 55,
+     "hits@20": 12,
+     "hits@50": 26,
+     "expected@20": 1.0192081536652293,
+     "p@20": 2.0938915384619467e-11,
+     "novel_hits@20": 0,
+     "novel_hits@50": 1,
+     "novel_symbols@50": [
+      "SCHLAP1"
+     ],
+     "pmids": {
+      "SCHLAP1": [
+       "33904361"
+      ]
+     }
+    },
+    "DISEASES (text-mining)": {
+     "n_external": 2,
+     "n_novel_vs_ours": 0,
+     "hits@20": 1,
+     "hits@50": 1,
+     "expected@20": 0.007840062720501764,
+     "p@20": 0.007825461545076403,
+     "novel_hits@20": 0,
+     "novel_hits@50": 0,
+     "novel_symbols@50": [],
+     "pmids": {}
+    }
+   }
+  }
+ }
+}

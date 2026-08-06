@@ -1,0 +1,18 @@
+{
+ "source": "PubMed, queried for each unconfirmed top-20 candidate together with its target cancer",
+ "note": "Checked for candidates that neither RNADisease v4.0 nor LncRNADisease annotates to the target cancer. A non-zero count means the pair is supported by primary literature that neither database has curated.",
+ "pairs": [
+  {"cancer": "Hepatocellular carcinoma", "lncRNA": "HOXA10-AS", "n_pubmed": 1, "pmids": ["31440094"]},
+  {"cancer": "Hepatocellular carcinoma", "lncRNA": "SCHLAP1", "n_pubmed": 0, "pmids": []},
+  {"cancer": "Hepatocellular carcinoma", "lncRNA": "GATA6-AS1", "n_pubmed": 0, "pmids": []},
+  {"cancer": "Gastric cancer", "lncRNA": "SNHG18", "n_pubmed": 1, "pmids": ["39130478"]},
+  {"cancer": "Gastric cancer", "lncRNA": "HOXA11", "n_pubmed": 18, "pmids": ["37989866","37539033","36749091"]},
+  {"cancer": "Gastric cancer", "lncRNA": "CHASERR", "n_pubmed": 0, "pmids": []},
+  {"cancer": "Breast cancer", "lncRNA": "GATA6-AS1", "n_pubmed": 1, "pmids": ["37273453"]},
+  {"cancer": "Breast cancer", "lncRNA": "SNHG18", "n_pubmed": 0, "pmids": []},
+  {"cancer": "Breast cancer", "lncRNA": "CHASERR", "n_pubmed": 0, "pmids": []},
+  {"cancer": "Colorectal cancer", "lncRNA": "SCHLAP1", "n_pubmed": 0, "pmids": []},
+  {"cancer": "Non-small cell lung cancer", "lncRNA": "MIR22HG", "n_pubmed": 2, "pmids": ["37479878","36333719"]},
+  {"cancer": "Non-small cell lung cancer", "lncRNA": "HOXA10-AS", "n_pubmed": 3, "pmids": ["39830983","30807784","29729275"]}
+ ]
+}

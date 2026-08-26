@@ -13,7 +13,7 @@ and the scripts that regenerate each dataset variant, table and figure reported 
 ## What the paper claims, and what to run to check it
 
 The study asks what lets a predictor score an lncRNA–disease pair when **neither** partner was
-seen in training (the `C-both` protocol). Three results are reproducible here:
+seen in training (the `C-both` protocol — **both-cold** in the article). The headline results are reproducible here:
 
 Before anything else, check that the released results match the published tables:
 
@@ -21,20 +21,23 @@ Before anything else, check that the released results match the published tables
 python verify.py     # no GPU, no dataset needed
 ```
 
-It asserts all 112 values of Tables 2 and 3 against `results*/` and exits non-zero on any
+It asserts all 118 values of Table 2, Table 3, and the 16-variant grid (Table S3 / Figure 3) against `results*/` and exits non-zero on any
 mismatch. It also pins down one trap: a few models were re-run into a dedicated directory
 after first appearing in `results_sweep/`, and the two copies disagree — `VGAELDA-contentfull`
 differs in all sixteen variants. The article uses the dedicated directory, so reading
-`results_sweep/` first silently changes the *best content-equipped* column on three variants.
+`results_sweep/` first silently changes the *best content-aware* value on three variants.
 
 | Claim | Where | Command |
 |---|---|---|
-| Every method that reads only the association graph falls to the 0.500 chance floor at `C-both` | Table 2 | `python -m bench.runner --dataset rd --protocol cold` |
-| Removing node content collapses CDELDA to the same floor | Table 4 | `python -m bench.ablation_hero` |
-| The margin survives when baselines get matched content | Table 3 | `python -m bench.sweep_run` |
+| Every method that reads only the association graph falls to the 0.500 chance level at both-cold | Table 2 | `python -m bench.runner --dataset rd --protocol cold` |
+| Features computed on the full association matrix inflate cold-start scores | Table 3 | `python -m bench.vghb_leakage --leak 1`, then `--leak 0` |
+| Removing node content collapses CDELDA to the same level | Figure 4 | `python -m bench.ablation_hero` |
+| The margin holds across the 16-variant grid | Figure 3, Table S3 | `python -m bench.sweep_run` |
+| The primary-variant margin is robust across five seeds | Table S1 | `python -m bench.fiveseed_stats` |
+| Curated associations are recovered for held-out cancers | Table 4 | `python -m bench.case_study_cdis`, then `python -m bench.case_study_external` |
 
 Headline dataset variant is **`l2d5`**: 5102 lncRNAs × 245 diseases, 20 197 positives,
-1.62 % density. Metric is AUPR against 1:1 balanced true-zero negatives, chance floor 0.500.
+1.62 % density. Metric is AUPR against 1:1 balanced operational negatives (sampled unobserved pairs), chance level 0.500.
 Seed is fixed at **2026** throughout.
 
 ---
@@ -47,7 +50,8 @@ bench/            evaluation harness, model interface, metrics
   interface.py      the contract every model and baseline obeys
   baselines/        DSCMF, KATZLDA, VGAELDA, LDAformer, IPCARF, SIMCLDA, LDA-VGHB
   hero_peft.py      CDELDA (dual encoder + LoRA disease tower)
-  case_study_*.py   disease-cold case study (Tables 6-7)
+  case_study_*.py   disease-cold case study (Table 4; the scripts generate every target that
+                    meets the predefined selection rules -- the article reports four of them)
 snapshot_src/     frozen model source as used for the reported numbers
 data_prep/src/    dataset regeneration pipeline (see "Data" below)
 results*/         frozen result JSON behind every reported number
@@ -73,7 +77,7 @@ pip install -r requirements.txt
 Two dependencies are imported lazily and are only needed for part of the work:
 
 - `multimolecule` — RNA-FM sequence embeddings (data preparation, and the RNA-side LoRA ablation)
-- `snapml` — the `BoostingMachine` used by the LDA-VGHB baseline (Table 5)
+- `snapml` — the `BoostingMachine` used by the LDA-VGHB baseline (Tables 2 and 3)
 
 ---
 
@@ -121,7 +125,7 @@ export CDELDA_SEED=2026
 export TT_M=128 TT_WD=1e-3 TT_DROPOUT=0.2 TT_LR=1e-3 TT_EPOCHS=500
 
 python -m bench.runner --dataset rd --protocol warm     # warm 5-fold
-python -m bench.runner --dataset rd --protocol cold     # C-dis, C-lnc, C-both
+python -m bench.runner --dataset rd --protocol cold     # disease-cold, lncRNA-cold, both-cold
 python -m bench.runner --dataset rd --protocol cold --only "TwoTower (content)"
 ```
 
@@ -133,26 +137,26 @@ time. A model already present is skipped, so an interrupted run resumes exactly 
 | | Held out | Novel at test time |
 |---|---|---|
 | `warm` | 1/5 of positive pairs | nothing — every node stays in training |
-| `C-dis` | whole disease rows | the disease |
-| `C-lnc` | whole lncRNA columns | the lncRNA |
-| `C-both` | both | both endpoints — the paper's headline |
+| `C-dis` (disease-cold) | whole disease rows | the disease |
+| `C-lnc` (lncRNA-cold) | whole lncRNA columns | the lncRNA |
+| `C-both` (both-cold) | both | both endpoints — the article's primary protocol |
 
 Under the cold protocols the held-out rows and columns are zero-masked **before** any kernel or
 topology computation, so a cold node cannot leak through a similarity matrix. This is the leakage
-control; `bench/vghb_leakage.py` demonstrates what happens without it (Table 5).
+control; `bench/vghb_leakage.py` demonstrates what happens without it (Table 3).
 
 ---
 
 ## Tables and figures
 
 ```bash
-python verify.py                           # check Tables 2-3 against results*/
-python paper/make_singlesource_tables.py   # Tables 2-3 as markdown
-python -m bench.case_study_cdis            # Table 6
-python -m bench.case_study_external        # Table 7 external confirmation
+python verify.py                           # check Tables 2-3 and the grid against results*/
+python paper/make_singlesource_tables.py   # Table 2 and the grid as markdown
+python -m bench.case_study_cdis            # Table 4 (per-target metrics and top candidates)
+python -m bench.case_study_external        # Table 4 evidence column (LncRNADisease cross-check)
 python paper/fig_architecture.py           # Figure 1
-python paper/fig_sparsity.py               # Figure 2
-python paper/fig_attribution.py            # Figure 3
+python paper/fig_sparsity.py               # Figure 3 data (earlier layout)
+python paper/fig_attribution.py            # Figure 4 data (earlier layout)
 ```
 
 Figures are written at 600 dpi with `pdf.fonttype: 42`, in PNG, TIFF and PDF.

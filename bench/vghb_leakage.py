@@ -1,5 +1,5 @@
 """LDA-VGHB under its original transductive setting versus our leakage-safe node
-hold-out (Table 5).
+holdout (Table 3 of the article: the primary variant l2d5).
 
 The released LDA-VGHB precomputes its SVD factors and VGAE node features on the
 FULL association matrix before pairs are split, so a held-out row or column has
@@ -35,8 +35,10 @@ for _p in (_PAPER, os.path.join(_PAPER, "snapshot_src")):
         sys.path.insert(0, _p)
 
 DATA_ROOT = _DATA
-OUT = os.path.join(_PAPER, "results_vghb_leakage")
-VARIANTS = ["l5d5", "l4d4", "l5d3"]
+# Table 3 of the article contrasts the two settings on the primary variant.
+# Pass --variants to reproduce other grids (e.g. the legacy three dense variants).
+VARIANTS = ["l2d5"]
+OUT = os.path.join(_PAPER, "results_vghb_leakage_l2d5")
 SEED = 2026
 SCN = [("C-dis", "disease", "disease"),
        ("C-lnc", "lncRNA", "lncRNA"),
@@ -46,7 +48,18 @@ SCN = [("C-dis", "disease", "disease"),
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--leak", type=int, choices=[0, 1], required=True)
+    ap.add_argument("--variants", nargs="+", default=None,
+                    help="dataset variants (default: l2d5, as in Table 3)")
+    ap.add_argument("--out", default=None,
+                    help="output directory (default: results_vghb_leakage_l2d5)")
     a = ap.parse_args()
+    global VARIANTS, OUT
+    if a.variants:
+        VARIANTS = a.variants
+        if a.out is None:
+            OUT = os.path.join(_PAPER, "results_vghb_leakage_" + "_".join(a.variants))
+    if a.out:
+        OUT = a.out if os.path.isabs(a.out) else os.path.join(_PAPER, a.out)
 
     os.environ["VGHB_LEAK"] = str(a.leak)
     os.environ["VGHB_VGAE_EP"] = "60"          # one schedule for both settings

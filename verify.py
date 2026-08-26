@@ -1,6 +1,6 @@
 """Check the published tables against the frozen result JSON.
 
-Every number in Tables 2 and 3 of the article is asserted against results*/ here, so
+Every number in Table 2, Table 3, and the 16-variant grid (Table S3 / Figure 3) of the article is asserted against results*/ here, so
 the claim that the released artifact reproduces the article can be checked in one
 command, without a GPU and without regenerating any dataset:
 
@@ -10,7 +10,7 @@ One subtlety this script pins down. A few models were re-run into a dedicated
 directory after first appearing in results_sweep/, and the two copies do not agree --
 VGAELDA-contentfull differs in all sixteen variants. The article uses the dedicated
 directory, so PREFERENCE below encodes that, and reading results_sweep/ first would
-silently give a different "best content-equipped" column on three variants.
+silently give a different "best content-aware" value on three variants.
 """
 import glob
 import json
@@ -22,16 +22,16 @@ PREFERENCE = ["results_sweep_content", "results_sweep_contentfull",
               "results_sweep_peft", "results_sweep_vghb", "results_sweep"]
 
 MAIN = "TwoTower-PEFT-disease (LoRA S-BioBERT)"          # CDELDA (LoRA-disease)
-DOT = "TwoTower (content)"                               # CDELDA (dot)
+DOT = "TwoTower (content)"                               # CDELDA (frozen)
 VGHB = "LDA-VGHB (SVD+VGAE+SnapBoost)"
-# the six reproduced families, each in the content form the article gives it
+# the reproduced families, each in the content-aware form the article gives it
 FAMILY = ("DSCMF-content", "IPCARF-content", "KATZLDA-content",
           "SIMCLDA-content", "VGAELDA-content")
 
 # Table 2 -- headline variant l2d5, AUPR(1:1) mean +- fold-std
 TABLE2 = [
     ("CDELDA (LoRA-disease)", MAIN, (0.922, 0.001), (0.755, 0.058), (0.911, 0.003), (0.717, 0.056)),
-    ("CDELDA (dot)", DOT, (0.923, 0.001), (0.743, 0.054), (0.911, 0.002), (0.704, 0.058)),
+    ("CDELDA (frozen)", DOT, (0.923, 0.001), (0.743, 0.054), (0.911, 0.002), (0.704, 0.058)),
     ("DSCMF", "DSCMF-contentfull (cold-equipped)", (0.807, 0.003), (0.749, 0.047), (0.813, 0.005), (0.629, 0.036)),
     ("KATZLDA", "KATZLDA-content (semsim+expr)", (0.901, 0.002), (0.765, 0.023), (0.821, 0.003), (0.621, 0.055)),
     ("SIMCLDA", "SIMCLDA-content (semsim+expr)", (0.741, 0.002), (0.628, 0.018), (0.802, 0.003), (0.601, 0.037)),
@@ -45,8 +45,9 @@ TABLE2 = [
     ("Random", "Random", (0.499, 0.004), (0.502, 0.004), (0.502, 0.003), (0.504, 0.010)),
 ]
 
-# Table 3 -- both-cold across the 16-variant grid: CDELDA, LDA-VGHB, best content-equipped, margin
-TABLE3 = [
+# Table S3 / Figure 3 -- both-cold across the 16-variant grid:
+# CDELDA, LDA-VGHB, best content-aware baseline, margin
+GRID = [
     ("l2d2", 0.701, 0.514, 0.673, 0.028), ("l2d3", 0.679, 0.546, 0.661, 0.019),
     ("l2d4", 0.654, 0.560, 0.637, 0.018), ("l2d5", 0.717, 0.527, 0.629, 0.087),
     ("l3d2", 0.690, 0.525, 0.669, 0.021), ("l3d3", 0.662, 0.521, 0.651, 0.011),
@@ -107,8 +108,8 @@ def main():
                 fails.append("Table 2 / %s / %s" % (label, split))
         print("  %-24s %s" % (label, "  ".join(got)))
 
-    print("\nTable 3 -- both-cold across the 16-variant grid")
-    for variant, want_main, want_vghb, want_eq, want_margin in TABLE3:
+    print("\nTable S3 / Figure 3 -- both-cold across the 16-variant grid")
+    for variant, want_main, want_vghb, want_eq, want_margin in GRID:
         by_model = read(variant, "cold")
         main = by_model.get(MAIN, {}).get("both")
         vghb = by_model.get(VGHB, {}).get("both")
@@ -118,13 +119,34 @@ def main():
         margin = main[0] - best if (main and best is not None) else None
         for name, value, want in (("CDELDA", main and main[0], want_main),
                                   ("LDA-VGHB", vghb and vghb[0], want_vghb),
-                                  ("best content-equipped", best, want_eq),
+                                  ("best content-aware", best, want_eq),
                                   ("margin", margin, want_margin)):
             if value is None or round(value, 3) != want:
-                fails.append("Table 3 / %s / %s" % (variant, name))
+                fails.append("Grid / %s / %s" % (variant, name))
         print("  %-6s %.3f  %.3f  %.3f  %+.3f" % (variant, main[0], vghb[0], best, margin))
 
-    total = len(TABLE2) * 4 + len(TABLE3) * 4
+    print("\nTable 3 -- LDA-VGHB feature-computation leakage contrast on l2d5")
+    LEAK = {"original": {"C-dis": 0.887, "C-lnc": 0.973, "C-both": 0.884},
+            "safe": {"C-dis": 0.715, "C-lnc": 0.401, "C-both": 0.503}}
+    leak_n = 0
+    for tag, want in LEAK.items():
+        path = os.path.join(HERE, "results_vghb_leakage_l2d5", "vghb_%s.json" % tag)
+        try:
+            doc = json.load(open(path, encoding="utf-8"))
+            var = doc["variants"]["l2d5"]
+        except (OSError, ValueError, KeyError):
+            fails.append("Table 3 / %s / missing" % tag)
+            continue
+        row = []
+        for scn, want_m in want.items():
+            got = round(var[scn]["mean"], 3)
+            row.append("%.3f" % got)
+            leak_n += 1
+            if got != want_m:
+                fails.append("Table 3 / %s / %s" % (tag, scn))
+        print("  %-9s %s" % (tag, "  ".join(row)))
+
+    total = len(TABLE2) * 4 + len(GRID) * 4 + leak_n
     print("\n%d of %d published values reproduced from results*/" % (total - len(fails), total))
     for f in fails:
         print("  MISMATCH  " + f)

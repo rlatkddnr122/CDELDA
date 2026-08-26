@@ -1,6 +1,6 @@
 """VGAELDA -- COLD-EQUIPPED content variant (inductive full-node extension).
 
-Sibling of `bench/baselines_content/vgaelda_content.py`. That -content variant
+Sibling of `bench/baselines/vgaelda_content.py`. That -content variant
 equips VGAELDA with literal intrinsic content (lncRNA expression cosine + disease
 DO-DAG semantic similarity) blended with the train-subblock GIP, BUT it restricts
 every similarity to the train x train block -- so held-out (cold) nodes still fall

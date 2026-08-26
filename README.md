@@ -29,10 +29,10 @@ differs in all sixteen variants. The article uses the dedicated directory, so re
 
 | Claim | Where | Command |
 |---|---|---|
-| Every method that reads only the association graph falls to the 0.500 chance level at both-cold | Table 2 | `python -m bench.runner --dataset rd --protocol cold` |
+| Every method that reads only the association graph falls to the 0.500 chance level at both-cold | Table 2 | `python -m bench.sweep_run --variants l2d5` — see **Reproducing Table 2** below |
 | Features computed on the full association matrix inflate cold-start scores | Table 3 | `python -m bench.vghb_leakage --leak 1`, then `--leak 0` |
 | Removing node content collapses CDELDA to the same level | Figure 4 | `python -m bench.ablation_hero` |
-| The margin holds across the 16-variant grid | Figure 3, Table S3 | `python -m bench.sweep_run` |
+| The margin holds across the 16-variant grid | Figure 3, Table S3 | `python -m bench.sweep_run --variants l{2,3,4,5}d{2,3,4,5}` (bash brace expansion — all 16) |
 | The primary-variant margin is robust across five seeds | Table S1 | `python -m bench.fiveseed_stats` |
 | Curated associations are recovered for held-out cancers | Table 4 | `python -m bench.case_study_cdis`, then `python -m bench.case_study_external` |
 
@@ -106,10 +106,23 @@ python -m data_prep.src.build_structure      # ViennaRNA   -> lnc_struct.npy
 python -m data_prep.src.build_expression     # GTEx        -> lnc_expr.npy
 python -m data_prep.src.build_ortho          # assemble the 702-d lncRNA content
 python -m data_prep.src.embed_disease        # S-BioBERT on DO definitions -> disease_emb.npy
-python -m data_prep.src.build_content_sim    # disease semantic similarity (for baselines)
 python -m data_prep.src.sweep_build          # the 16 k-core variants -> data_rd_l{L}d{D}/
+                                             # (a variant whose M.npy already exists is skipped)
+
+# per-variant disease embeddings, then the literal content-similarity matrices
+# used by the content-equipped baselines (both need the variant directories,
+# so they must run AFTER sweep_build):
+for d in "$CDELDA_DATA_ROOT"/data_rd_l*d*; do
+  CCDIFF_DATA_DIR="$d" python -m data_prep.src.embed_disease
+done
+python -m data_prep.src.build_content_sim    # lnc_expr.npy + disease_semsim.npy per variant
+
 python -m data_prep.src.prep_ld              # LncRNADisease (cross-corpus check)
 ```
+
+The headline variant `l2d5` is built by `sweep_build` like every other variant. Its graph files
+can also be regenerated alone, bit-identically, with
+`LD_MIN_LNC=2 LD_MIN_DIS=5 CCDIFF_DATA_DIR=$CDELDA_DATA_ROOT/data_rd_l2d5 python -m data_prep.src.prep_rd`.
 
 A `k`-core filter iteratively keeps only nodes of degree at least `k`. The 16 variants cross an
 lncRNA cut-off with a disease cut-off, both in {2, 3, 4, 5}. **Node content is identical across
@@ -123,14 +136,67 @@ controlled comparison rather than a confound.
 ```bash
 export CDELDA_SEED=2026
 export TT_M=128 TT_WD=1e-3 TT_DROPOUT=0.2 TT_LR=1e-3 TT_EPOCHS=500
+export PEFT_EPOCHS=100   # REQUIRED whenever TT_EPOCHS is set (see warning below)
 
 python -m bench.runner --dataset rd --protocol warm     # warm 5-fold
 python -m bench.runner --dataset rd --protocol cold     # disease-cold, lncRNA-cold, both-cold
 python -m bench.runner --dataset rd --protocol cold --only "TwoTower (content)"
 ```
 
+> **Warning — `PEFT_EPOCHS=100` is required to reproduce the published CDELDA (LoRA) numbers.**
+> `bench/hero_peft.py` reads its epoch count from `PEFT_EPOCHS` and, if that is unset, falls back
+> to `TT_EPOCHS`. The exports above set `TT_EPOCHS=500` for the frozen two-tower model, so without
+> `PEFT_EPOCHS=100` the LoRA model silently trains for 500 epochs and both-cold AUPR on `l2d5`
+> comes out near 0.679 instead of the published 0.717±0.056 (which was produced at 100 epochs).
+
+`bench.runner --dataset rd` runs the *canonical* RNADisease cut (5035 × 164), which is **not**
+the Table 2 dataset. Table 2 uses the `l2d5` variant (5102 × 245) via `bench.sweep_run` — see the
+next subsection.
+
 Results are written incrementally to `results/bench_<dataset>_<protocol>.json`, one model at a
 time. A model already present is skipped, so an interrupted run resumes exactly where it stopped.
+
+### Reproducing Table 2 (primary variant `l2d5`)
+
+Point `CCDIFF_SWEEP_RESULTS` at a fresh directory so your rerun does not append to the frozen
+article results, then run the five model groups (any order; each run is checkpointed per model):
+
+```bash
+export CCDIFF_SWEEP_RESULTS=$PWD/results_repro
+
+# graph-only baselines, kNN-content, MF (free-emb), and CDELDA (frozen) = "TwoTower (content)"
+python -m bench.sweep_run --variants l2d5
+
+# content-equipped forms of the five content-capable baselines
+python -m bench.sweep_run --variants l2d5 --only \
+  "DSCMF-content (semsim+expr)" "IPCARF-content (semsim+expr)" "KATZLDA-content (semsim+expr)" \
+  "SIMCLDA-content (semsim+expr)" "VGAELDA-content (semsim+expr)"
+
+# cold-equipped extensions
+python -m bench.sweep_run --variants l2d5 --only \
+  "DSCMF-contentfull (cold-equipped)" "VGAELDA-contentfull (cold-equipped)"
+
+# CDELDA (LoRA disease encoder) -- PEFT_EPOCHS=100 must be set, see the warning above
+python -m bench.sweep_run --variants l2d5 --only "TwoTower-PEFT-disease (LoRA S-BioBERT)"
+
+# leakage-safe LDA-VGHB (needs snapml)
+python -m bench.sweep_run --variants l2d5 --only "LDA-VGHB (SVD+VGAE+SnapBoost)"
+```
+
+Compare `results_repro/bench_rdl2d5_{warm,cold}.json` against the frozen copies the article (and
+`verify.py`) read from:
+
+| Table 2 rows | Frozen directory |
+|---|---|
+| graph-only baselines, kNN-content, MF (free-emb), TwoTower (content) | `results_sweep/` |
+| `*-content (semsim+expr)` | `results_sweep_content/` |
+| `*-contentfull (cold-equipped)` | `results_sweep_contentfull/` |
+| TwoTower-PEFT-disease (LoRA S-BioBERT) = CDELDA | `results_sweep_peft/` |
+| LDA-VGHB (SVD+VGAE+SnapBoost) | `results_sweep_vghb/` |
+
+On the machine the paper was produced on (RTX 4090, seed 2026) the deterministic models
+reproduce bit-identically; the float32 BLAS baselines agree to ~1e-5, which does not move any
+value at the three decimals reported.
 
 ### The four protocols
 

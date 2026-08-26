@@ -26,8 +26,8 @@ from collections import deque
 ROOT = _ROOT
 OBO = os.path.join(ROOT, "data_raw", "doid.obo")
 SRC = os.path.join(ROOT, "data_rd")
-VARIANTS = [f"l{ml}d{md}" for ml in (2, 3, 4, 5) for md in (2, 3, 4, 5)
-            if not (md == 5 and ml in (2, 3))]  # 14 new (l2d5,l3d5 already built)
+VARIANTS = [f"l{ml}d{md}" for ml in (2, 3, 4, 5) for md in (2, 3, 4, 5)]
+# a variant whose outputs already exist is skipped inside the loop (avoid clobber)
 W = 0.5  # is_a semantic contribution factor (Wang 2007)
 
 
@@ -76,6 +76,9 @@ def main():
 
     for v in VARIANTS:
         d = os.path.join(ROOT, f"data_rd_{v}")
+        if all(os.path.exists(os.path.join(d, f)) for f in ("lnc_expr.npy", "disease_semsim.npy")):
+            print(f"[{v}] lnc_expr.npy + disease_semsim.npy exist, skip (avoid clobber)")
+            continue
         lncs = open(os.path.join(d, "lnc_names.txt")).read().splitlines()
         doids = open(os.path.join(d, "disease_doids.txt")).read().splitlines()
 

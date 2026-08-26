@@ -1,4 +1,4 @@
-"""Build the RNADisease k-core threshold-sweep datasets: dis in {5,10,20} x lnc in {2,3}.
+"""Build the 16 RNADisease k-core threshold-sweep datasets (lnc and dis cut-offs in {2,3,4,5}).
 
 For each (min_lnc, min_dis) variant, writes ccdiff/data_rd_l{L}d{D}/ with:
   M.npy, lnc_names.txt, disease_doids.txt, disease_texts.json, lncrna_seq.json (subset),
@@ -23,8 +23,9 @@ ROOT = _ROOT
 XL = os.path.join(ROOT, "data_rd_raw", "RNADiseasev4.0_RNA-disease_experiment_lncRNA.xlsx")
 OBO = os.path.join(ROOT, "data_raw", "doid.obo")
 SRC = os.path.join(ROOT, "data_rd")  # source of content rows (l2/d10, fully built)
-# 16-variant sweep (lnc/dis k-core 2..5); (2,5) and (3,5) already built, skip to avoid clobber
-COMBOS = [(ml, md) for ml in (2, 3, 4, 5) for md in (2, 3, 4, 5) if not (md == 5 and ml in (2, 3))]
+# 16-variant sweep (lnc/dis k-core 2..5); a variant whose M.npy already exists is
+# skipped inside the loop, so pre-built variants are never clobbered.
+COMBOS = [(ml, md) for ml in (2, 3, 4, 5) for md in (2, 3, 4, 5)]
 
 
 def main():
@@ -50,6 +51,9 @@ def main():
 
     for ml, md in COMBOS:
         out = os.path.join(ROOT, f"data_rd_l{ml}d{md}")
+        if os.path.exists(os.path.join(out, "M.npy")):
+            print(f"[l{ml}d{md}] M.npy exists, skip (avoid clobber) -> {out}")
+            continue
         os.makedirs(out, exist_ok=True)
         core = kcore(pairs, ml, md)
         lncs = sorted(core["lnc"].unique()); doids = sorted(core["doid"].unique())

@@ -23,7 +23,7 @@ peft
 # --- optional, imported lazily -------------------------------------------
 # RNA-FM sequence embeddings (data preparation, RNA-side LoRA ablation)
 # multimolecule
-# BoostingMachine used by the LDA-VGHB baseline (Table 5)
+# BoostingMachine used by the LDA-VGHB baseline (Tables 2 and 3)
 # snapml
 # hyperparameter sweep logging (bench/wandb_*.py only)
 # wandb
